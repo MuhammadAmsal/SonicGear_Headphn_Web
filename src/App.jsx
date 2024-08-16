@@ -1,6 +1,7 @@
 import { useState } from 'react'
  import Navbar from './components/Navbar'
 import { UpdateFollower } from 'react-mouse-follower'
+import Services from './components/Services'
 import Hero from './components/Hero'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Navbar/>
       <Hero/>
     </UpdateFollower>
+    <Services/>
     </main>
   )
 }

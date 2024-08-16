@@ -4,7 +4,7 @@ import headphone2 from '../images/headphone2.png'
 import headphone3 from '../images/headphone3.png'
 import { FaWhatsapp } from 'react-icons/fa'
 import { UpdateFollower } from 'react-mouse-follower'
-import { AnimatePresence, easeInOut, motion } from 'framer-motion'
+import { AnimatePresence, color, easeInOut, motion } from 'framer-motion'
 
 const headphoneData=[
     {
@@ -14,7 +14,8 @@ const headphoneData=[
         subtitle:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry standard ',
         price:'$100',
         modal:'Modal Brown',
-        bgColor:"#8b5958"
+        bgColor:"#8b5958",
+        textColor:"#8b5958",
     },
     {
         id:2,
@@ -23,7 +24,8 @@ const headphoneData=[
         subtitle:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry standard ',
         price:'$100',
         modal:'Lime Green',
-        bgColor:"#638153"
+        bgColor:"#638153",
+        textColor:"#638153",
     },
     {
         id:3,
@@ -32,7 +34,8 @@ const headphoneData=[
         subtitle:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry standard',
         price:'$100',
         modal:'Ocean Blue',
-        bgColor:"#5d818c"
+        bgColor:"#5d818c",
+        textColor:"#5d818c"
     },
 
 ]
@@ -92,16 +95,44 @@ export default function Hero() {
                }}>
                <motion.h1  
                    key={activeData.id}
+                   variants={fadeUp(0.3)}
+                   initial="hidden"
+                   animate="show"
+                   exit="exit"
+                   className='text-3xl lg:text-6xl font-bold font-varela' style={{color:activeData.textColor}} >{activeData.title}</motion.h1>
+               </UpdateFollower>
+                 
+                   </AnimatePresence>
+                   <AnimatePresence mode='wait' >
+                     <motion.p
+                        key={activeData.id}
                    variants={fadeUp(0.2)}
                    initial="hidden"
                    animate="show"
                    exit="exit"
-                   className='text-3xl lg:text-6xl font-bold font-varela' >{activeData.title}</motion.h1>
-               </UpdateFollower>
-                 
-                   </AnimatePresence>
-                     <p className='text-sm leading-loose text-white/80' >{activeData.subtitle}</p>
-                     <button style={{backgroundColor:activeData.bgColor}} className={`px-4 py-2 inline-block font-normal rounded-sm `} >Buy and Listen</button>
+                      className='text-sm leading-loose text-white/80' >{activeData.subtitle}</motion.p> </AnimatePresence>
+
+                      <AnimatePresence mode='wait' >
+                       <UpdateFollower mouseOptions={{
+                          backgroundColor:activeData.bgColor,
+                          zIndex:99999,
+                          followSpeed:0.5,
+                          rotate:-720,
+                         scale:6,
+                         backgroundElement:(
+                            <div><img src={activeData.image} /></div>
+                         )
+                          } } >
+                       <motion.button
+                     key={activeData.id}
+                     variants={fadeUp(0.3)}
+                     initial="hidden"
+                     animate="show"
+                     exit="exit" 
+                     style={{backgroundColor:activeData.bgColor}} className={`px-4 py-2 inline-block font-normal rounded-sm `} >Buy and Listen</motion.button>
+                       </UpdateFollower>
+                     
+                      </AnimatePresence>
                        {/* headphone list */}
                       <div className='flex items-center justify-center md:justify-start gap-4 !mt-24' >
                         <div className='w-20 h-[1px] bg-white' ></div>
@@ -111,6 +142,14 @@ export default function Hero() {
                       {/* headphone list switcher */}
                          <div className='grid grid-cols-3 gap-10' >
                             {headphoneData.map((item)=>(
+                                <UpdateFollower mouseOptions={{
+                                    backgroundColor:item.bgColor,
+                                      zIndex:99999,
+                                      followSpeed:0.5,
+                                       scale:5,
+                                       text:"View Details",
+                                       textFontSize:"2px",
+                                            }} >
                                 <div key={item.id} onClick={()=>handleActiveData(item)} className='grid grid-cols-2 place-items-center cursor-pointer' >
                                 <div>
 
@@ -121,6 +160,8 @@ export default function Hero() {
                                     <p className='text-xs font-normal text-nowrap' >{item.modal}</p>
                                 </div>
                                 </div>
+                                </UpdateFollower>
+                                
                             ))}
                          </div>
                    </div>
@@ -128,7 +169,23 @@ export default function Hero() {
                    </div>
              {/* heroimage */}
              <div className='flex flex-col justify-end items-center' >
-                <img className='w-[300px] md:w-[400px] xl:w-[550px]' src={activeData.image} alt='' />
+             <AnimatePresence mode='wait' >
+             
+                <motion.img 
+                  key={activeData.id}
+                
+                   initial={{opacity:0,scale:0.9,y:100}}
+                   animate={{opacity:1,scale:1,y:0}}
+                   transition={{duration:0.4,delay:0.2,ease:easeInOut}}
+                   exit={{
+                    opacity:0,
+                    scale:0.9,  y:100,
+                    transition:{
+                        duration:0.2
+                    }
+                   }}
+                className='w-[300px] md:w-[400px] xl:w-[550px]' src={activeData.image} alt='' />
+             </AnimatePresence>
              </div>
            {/* whatsapp icon */}
            <div className='text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[99999] mix-blend-difference' >

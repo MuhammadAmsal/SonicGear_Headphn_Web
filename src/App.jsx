@@ -7,6 +7,7 @@ import Banner from './components/Banner'
 import BannerText from './components/BannerText'
 import Blogs from './components/Blogs'
 import Footer from './components/Footer'
+ 
 function App() {
    
 
@@ -21,6 +22,7 @@ function App() {
     >
 
       <Navbar/>
+      
       <Hero/>
     </UpdateFollower>
     <UpdateFollower

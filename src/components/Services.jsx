@@ -54,7 +54,7 @@ const servicesData=[
 
 export default function Services() {
   return (
-     <section className='bg-gray-100 font-poppins py-8' >
+     <section id='services' className='bg-gray-100 font-poppins py-8' >
         <div  className='container py-14' >
            <motion.h1
            variants={fadeUp(0.2)}

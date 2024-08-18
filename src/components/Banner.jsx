@@ -7,7 +7,7 @@ import { fadeUp } from './Services'
 export default function Banner() {
   return (
     <>
-        <section>
+        <section id='about' >
             <div className='container py-14 grid grid-cols-1 md:grid-cols-2 space-y-6 md:space-y-0 gap-12' >
 
               {/* bannerimage */}

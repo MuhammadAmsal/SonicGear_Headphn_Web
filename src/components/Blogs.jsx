@@ -39,7 +39,7 @@ const BlogsData=[
 
 function Blogs() {
   return (
-     <section className='bg-gray-50' >
+     <section id='blog' className='bg-gray-50' >
         <div className='container py-14' >
         <h1 className='text-3xl font-bold text-center font-poppins pb-8' >Blogs</h1>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6' >

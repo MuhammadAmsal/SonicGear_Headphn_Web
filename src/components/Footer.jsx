@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 
 function Footer() {
   return (
-     <footer className='bg-primary pt-12 pb-8 text-white' >
+     <footer id='contact' className='bg-primary pt-12 pb-8 text-white' >
       <div className='container' >
       <div className='grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-8' >
          {/* company details */}
@@ -29,7 +29,7 @@ function Footer() {
                   
                 }}
           className='space-y-6' >
-          <h1 className='text-3xl font-bold uppercase' >Playing</h1>
+          <h1 className='text-3xl font-bold uppercase' >Address</h1>
          <p className='text-sm max-w-[300px]' >Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry standard</p>
         <div>
           <p className='flex items-center gap-2' >

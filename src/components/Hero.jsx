@@ -79,7 +79,7 @@ export default function Hero() {
 
   return (
      <>
-        <section className="bg-brandDark text-white font-varela" >
+        <section id='home' className="bg-brandDark text-white font-varela" >
             <div className='container grid grid-cols-1 md:grid-cols-2 min-h-[700px] ' >
               {/* HeadphoneInfo */}
                    <div className='flex flex-col  justify-center py-14 md:py-0 xl:max-w-[500px]' >

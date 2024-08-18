@@ -3,7 +3,10 @@ import { useState } from 'react'
 import { UpdateFollower } from 'react-mouse-follower'
 import Services from './components/Services'
 import Hero from './components/Hero'
-
+import Banner from './components/Banner'
+import BannerText from './components/BannerText'
+import Blogs from './components/Blogs'
+import Footer from './components/Footer'
 function App() {
    
 
@@ -20,7 +23,20 @@ function App() {
       <Navbar/>
       <Hero/>
     </UpdateFollower>
+    <UpdateFollower
+    mouseOptions={{
+      backgroundColor:"black",
+      zIndex:999,
+      followSpeed:1.5
+    }}
+    >
     <Services/>
+    <Banner/>
+    <BannerText/>
+    <Blogs/>
+    <Footer/>
+    </UpdateFollower>
+   
     </main>
   )
 }
